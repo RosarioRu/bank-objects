@@ -17,17 +17,17 @@ BankAccount.prototype.deposit = function () {
 
 function AllAccountsAtBank() {
   this.accounts = {};
-  this.accountNumber = 100;
+  this.accountNumberToAssign = 100;
 }
 
 AllAccountsAtBank.prototype.assignAcctNumber = function (account) {
-  this.accountNumber +=1;
-  return this.accountNumber;
+  this.accountNumberToAssign +=1;
+  return this.accountNumberToAssign;
 }
 
 AllAccountsAtBank.prototype.addAccount = function (account) {
-  account.id = this.assignAcctNumber();
-  this.accounts[account.id] = account;
+  account.accountNumber = this.assignAcctNumber();
+  this.accounts[account.accountNumber] = account;
 
 };
 

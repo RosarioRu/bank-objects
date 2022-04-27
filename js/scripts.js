@@ -1,4 +1,4 @@
-// function to make bank accts (the constructor)
+// Constructor function to make bank accts.
 
 function BankAccount(firstName, lastName, age, initialDeposit) {
   this.firstName = firstName;
@@ -7,29 +7,33 @@ function BankAccount(firstName, lastName, age, initialDeposit) {
   this.initialDeposit = initialDeposit;
 }
 
-// prototype function that will be available to all instances of 'BankAccount'
+// Prototype function that will be available to all instances of 'BankAccount'.
 
 BankAccount.prototype.deposit = function () {
   return this.initialDeposit + newDeposit;
 };
 
-// function to make/hold many instances of BankAccount objects.
+//Constructor function to make Bank/Credit Union objects.
 
-function AllAccountsAtBank() {
+function FinancialInstitution() {
   this.accounts = {};
-  this.accountNumberToAssign = 100;
+  this.acctNumberToAssign = 100;
 }
 
-AllAccountsAtBank.prototype.assignAcctNumber = function (account) {
-  this.accountNumberToAssign +=1;
-  return this.accountNumberToAssign;
-}
+//Prototype functions that will be available to all instances of 'FinancialInstitution'.
 
-AllAccountsAtBank.prototype.addAccount = function (account) {
+//this one increments the acctNumberToAssign for each financial institution and returns this incremented # (this can then be assigned to the account that gets passed into).
+FinancialInstitution.prototype.assignAcctNumber = function (account) {
+  this.acctNumberToAssign +=1;
+  return this.acctNumberToAssign;
+}
+//this one adds individual instances of 'BankAccount' to the FinancialInstutution it's called on. It assigns a new property to the account passed into it (.accountNumber) and gives it the value that is returned from the function .assignAcctNumber. It then assigns this value as a key with a value of the BankAccount instance itself to the object 'accounts.' 
+FinancialInstitution.prototype.addAccount = function (account) {
   account.accountNumber = this.assignAcctNumber();
   this.accounts[account.accountNumber] = account;
 
 };
+
 
 
 

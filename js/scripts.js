@@ -34,6 +34,15 @@ FinancialInstitution.prototype.addAccount = function (account) {
 
 };
 
+//Prototype function to look up an individual BankAccount in a particular FinancialInstitution.
+
+FinancialInstitution.prototype.findAccount = function (account) {
+  if (this.accounts.accountNumber != undefined) {
+    return "No account found";
+  } else {
+    return "Welcome " + accountNumber.firstName + " Acct#: " + accountNumber;
+  }
+};
 
 
 

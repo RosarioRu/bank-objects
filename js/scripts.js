@@ -34,15 +34,23 @@ FinancialInstitution.prototype.addAccount = function (account) {
 
 //Prototype function to look up an individual BankAccount in a particular FinancialInstitution. Returns name of individual that owns acccount.
 FinancialInstitution.prototype.findAccount = function (numEntered) {
-  if (this.accounts.numEntered != undefined) {
-    return "No account found";
+  if (this.accounts[numEntered] === undefined) {
+    return "no account found";
   } else {
    return this.accounts[numEntered].firstName;
   }
 };
 
+
 //Prototype function to deposit or withdraw funds from an individual acct.
-FinancialInstitution
+FinancialInstitution.prototype.depositOrWithdraw = function (which, amount, acctNum) {
+  if (which === "deposit") {
+    return this.accounts[acctNum].initialDeposit += amount;
+  } else {
+    return this.accounts[acctNum].initialDeposit -= amount;
+  }
+};
+
 //USER INTERFACE LOGIC
 
 $(document).ready(function(){
@@ -62,9 +70,14 @@ $(document).ready(function(){
   $("form#change-to-account").submit(function(event){
     event.preventDefault();
     const userEnteredAcctNum=$("input#enter-acct-num").val();
+    const whatToDo = $("#deposit-or-withdraw").val();
+    const userEnteredAmount=$parseInt(("input#amount").val());
     const userGreeting = bestBankEver.findAccount(userEnteredAcctNum);
-    // if (user chooses deposit) {
-    //   initialDeposit+=amount entered;
+    // if (bestBankEver.findAccount(userEnteredAcctNum) === "no account found") {
+    //  return "No account found, please enter a valid account number.";
+    // } else { 
+    //     return bestBankEver.depositOrWithdraw(whatToDo, userEnteredAmount, userEnteredAcctNum);
+    
     // } else { 
     //   initialDeposit -=amount entered;
     // }

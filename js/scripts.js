@@ -1,5 +1,6 @@
-// Constructor function to make bank accts.
+//BUSINESS LOGIC
 
+// Constructor function to make bank accts.
 function BankAccount(firstName, lastName, age, initialDeposit) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -8,13 +9,11 @@ function BankAccount(firstName, lastName, age, initialDeposit) {
 }
 
 // Prototype function that will be available to all instances of 'BankAccount'.
-
 BankAccount.prototype.deposit = function () {
   return this.initialDeposit + newDeposit;
 };
 
 //Constructor function to make Bank/Credit Union objects.
-
 function FinancialInstitution() {
   this.accounts = {};
   this.acctNumberToAssign = 100;
@@ -31,11 +30,9 @@ FinancialInstitution.prototype.assignAcctNumber = function (account) {
 FinancialInstitution.prototype.addAccount = function (account) {
   account.accountNumber = this.assignAcctNumber();
   this.accounts[account.accountNumber] = account;
-
 };
 
 //Prototype function to look up an individual BankAccount in a particular FinancialInstitution. Returns name of individual that owns acccount.
-
 FinancialInstitution.prototype.findAccount = function (numEntered) {
   if (this.accounts.numEntered != undefined) {
     return "No account found";
@@ -44,6 +41,26 @@ FinancialInstitution.prototype.findAccount = function (numEntered) {
   }
 };
 
+
+//USER INTERFACE LOGIC
+
+$(document).ready(function(){
+  let bestBankEver = new FinancialInstitution();
+  $("form#new-account").submit(function(event){
+    event.preventDefault();
+    const userFirstName=$("input#first-name").val();
+    const userLastName=$("input#last-name").val();
+    const userAge = $("input#age").val();
+    const userInitialDeposit = $("input#initial-deposit").val();
+
+    let newAccount = new BankAccount(userFirstName, userLastName, userAge, userInitialDeposit);
+
+    bestBankEver.addAccount(newAccount);
+    
+    
+  });
+
+});
 
 
 

@@ -1,17 +1,15 @@
 //BUSINESS LOGIC
 
 // Constructor function to make bank accts.
-function BankAccount(firstName, lastName, age, initialDeposit) {
+function BankAccount(firstName, lastName, age, balance) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.age = age;
-  this.initialDeposit = initialDeposit;
+  this.balance = balance;
 }
 
 // Prototype function that will be available to all instances of 'BankAccount'.
-BankAccount.prototype.deposit = function () {
-  return this.initialDeposit + newDeposit;
-};
+
 
 //Constructor function to make Bank/Credit Union objects.
 function FinancialInstitution() {
@@ -42,14 +40,17 @@ FinancialInstitution.prototype.findAccount = function (numEntered) {
 };
 
 
-//Prototype function to deposit or withdraw funds from an individual acct.
-FinancialInstitution.prototype.depositOrWithdraw = function (which, amount, acctNum) {
-  if (which === "deposit") {
-    return this.accounts[acctNum].initialDeposit += amount;
-  } else {
-    return this.accounts[acctNum].initialDeposit -= amount;
-  }
-};
+//Prototype functions to deposit or withdraw funds from an individual acct.
+
+
+FinancialInstitution.prototype.deposit = function (amount, acctNum) {
+  return this.accounts[acctNum].balance += amount;
+}
+
+FinancialInstitution.prototype.withdraw = function (amount, acctNum) {
+  return this.accounts[acctNum].balance -= amount;
+}
+
 
 //USER INTERFACE LOGIC
 
@@ -73,16 +74,17 @@ $(document).ready(function(){
     const whatToDo = $("#deposit-or-withdraw").val();
     const userEnteredAmount=$parseInt(("input#amount").val());
     const userGreeting = bestBankEver.findAccount(userEnteredAcctNum);
+    let newBalance;
     // if (bestBankEver.findAccount(userEnteredAcctNum) === "no account found") {
     //  return "No account found, please enter a valid account number.";
     // } else { 
-    //     return bestBankEver.depositOrWithdraw(whatToDo, userEnteredAmount, userEnteredAcctNum);
-    
-    // } else { 
-    //   initialDeposit -=amount entered;
-    // }
-
-
+    //    if(whatToDo === "deposit") {
+    //      newBalance = bestBankEver.deposit(userEnteredAmount, userEnteredAcctNum);
+    //    } else {
+    //      newBalance = bestBankEver.withdrawl(userEnteredAmount, userEnteredAcctNum);
+    //    }
+    //  return "Thank you "+ bestBankEver.accounts[userEnteredAcctNum].firstName + " " + bestBankEver.accounts[userEnteredAcctNum].firstName + "." + "Your new balance is now " + newBalance " + "."
+    //  };
 
   });
 

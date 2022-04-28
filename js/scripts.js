@@ -41,7 +41,8 @@ FinancialInstitution.prototype.findAccount = function (numEntered) {
   }
 };
 
-
+//Prototype function to deposit or withdraw funds from an individual acct.
+FinancialInstitution
 //USER INTERFACE LOGIC
 
 $(document).ready(function(){
@@ -56,8 +57,20 @@ $(document).ready(function(){
     let newAccount = new BankAccount(userFirstName, userLastName, userAge, userInitialDeposit);
 
     bestBankEver.addAccount(newAccount);
-    
-    
+  });
+
+  $("form#change-to-account").submit(function(event){
+    event.preventDefault();
+    const userEnteredAcctNum=$("input#enter-acct-num").val();
+    const userGreeting = bestBankEver.findAccount(userEnteredAcctNum);
+    // if (user chooses deposit) {
+    //   initialDeposit+=amount entered;
+    // } else { 
+    //   initialDeposit -=amount entered;
+    // }
+
+
+
   });
 
 });

@@ -37,7 +37,7 @@ FinancialInstitution.prototype.findAccount = function (numEntered) {
   if (this.accounts.numEntered != undefined) {
     return "No account found";
   } else {
-   return this.accounts[numEntered].firstName
+   return this.accounts[numEntered].firstName;
   }
 };
 
@@ -50,8 +50,8 @@ $(document).ready(function(){
     event.preventDefault();
     const userFirstName=$("input#first-name").val();
     const userLastName=$("input#last-name").val();
-    const userAge = $("input#age").val();
-    const userInitialDeposit = $("input#initial-deposit").val();
+    const userAge = $parseInt(("input#age").val)//NEED TO parseINT at some pt.maybe like this?
+    const userInitialDeposit= $("input#initial-deposit").val();//NEED TO parseINT at some pt.Or like this? ... no
 
     let newAccount = new BankAccount(userFirstName, userLastName, userAge, userInitialDeposit);
 

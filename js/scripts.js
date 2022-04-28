@@ -34,13 +34,13 @@ FinancialInstitution.prototype.addAccount = function (account) {
 
 };
 
-//Prototype function to look up an individual BankAccount in a particular FinancialInstitution.
+//Prototype function to look up an individual BankAccount in a particular FinancialInstitution. Returns name of individual that owns acccount.
 
 FinancialInstitution.prototype.findAccount = function (numEntered) {
   if (this.accounts.numEntered != undefined) {
     return "No account found";
   } else {
-    return "Welcome " + this.accounts[numEntered].firstName + " Acct#: " + this.accounts[numEntered].accountNumber;
+   return this.accounts[numEntered].firstName
   }
 };
 

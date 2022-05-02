@@ -4,8 +4,8 @@
 function BankAccount(firstName, lastName, age, balance) {
   this.firstName = firstName;
   this.lastName = lastName;
-  this.age = age;
-  this.balance = balance;
+  this.age = parseInt(age);
+  this.balance = parseInt(balance);
 }
 
 // Prototype function that will be available to all instances of 'BankAccount'.
@@ -60,21 +60,32 @@ $(document).ready(function(){
     event.preventDefault();
     const userFirstName=$("input#first-name").val();
     const userLastName=$("input#last-name").val();
-    const userAge = $parseInt(("input#age").val)//NEED TO parseINT at some pt.maybe like this?
-    const userInitialDeposit= $("input#initial-deposit").val();//NEED TO parseINT at some pt.Or like this? ... no
+    const userAge = $("input#age").val();//NEED TO parseINT at some pt.maybe like this?
+    const userInitialDeposit=$("input#initial-deposit").val();//NEED TO parseINT at some pt.Or like this? ... no
 
     let newAccount = new BankAccount(userFirstName, userLastName, userAge, userInitialDeposit);
 
     bestBankEver.addAccount(newAccount);
+    // const showUserTheirAcctNumber = bestBankEver.accounts[newAccount.accountNumber].accountNumber;
+    const showUserTheirAcctNumber = newAccount.accountNumber;
+
+    
+    
+
+    $("#test").text(showUserTheirAcctNumber);
+    $("form#new-account").hide();
+
   });
 
-  $("form#change-to-account").submit(function(event){
-    event.preventDefault();
-    const userEnteredAcctNum=$("input#enter-acct-num").val();
-    const whatToDo = $("#deposit-or-withdraw").val();
-    const userEnteredAmount=$parseInt(("input#amount").val());
-    const userGreeting = bestBankEver.findAccount(userEnteredAcctNum);
-    let newBalance;
+  console.log(bestBankEver.accounts);
+
+  // $("form#change-to-account").submit(function(event){
+  //   event.preventDefault();
+  //   const userEnteredAcctNum=$("input#enter-acct-num").val();
+  //   const whatToDo = $("#deposit-or-withdraw").val();
+  //   const userEnteredAmount=$parseInt(("input#amount").val());
+  //   const userGreeting = bestBankEver.findAccount(userEnteredAcctNum);
+  //   let newBalance;
     // if (bestBankEver.findAccount(userEnteredAcctNum) === "no account found") {
     //  return "No account found, please enter a valid account number.";
     // } else { 
@@ -86,7 +97,7 @@ $(document).ready(function(){
     //  return "Thank you "+ bestBankEver.accounts[userEnteredAcctNum].firstName + " " + bestBankEver.accounts[userEnteredAcctNum].firstName + "." + "Your new balance is now " + newBalance " + "."
     //  };
 
-  });
+  // });
 
 });
 

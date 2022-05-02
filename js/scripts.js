@@ -74,10 +74,25 @@ $(document).ready(function(){
 
     $("#test").text(showUserTheirAcctNumber);
     $("form#new-account").hide();
+    $("#return-home").show();
+   
+
 
   });
 
+  $("#return-home").click(function() {
+    $("#return-home").hide();
+    $("#new-account").show();
+    $("input#first-name").val("");
+    $("input#last-name").val("");
+    $("input#age").val("");
+    $("input#initial-deposit").val("");
+  });
+
+
   console.log(bestBankEver.accounts);
+
+
 
   // $("form#change-to-account").submit(function(event){
   //   event.preventDefault();

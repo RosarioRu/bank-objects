@@ -9,25 +9,68 @@
 </head>
 <body>
   <div class="container">
-  <h1>Welcome to Tanda Bank</h1>
-  <p>Home of the Northwest's friendliest bank</p>
-  <form id="new-account">
-    <label for="first-name">First name</label>
-    <input id="first-name" class="form-control" type="text" required>
-    <label for="last-name">Last name</label>
-    <input id="last-name" class="form-control" type="text" required>
-    <label for="age">Your age</label>
-    <input id="age" class="form-control" type="number" required>
-    <label for="initial-deposit">Amount you wish to deposit today</label>
-    <input id="initial-deposit" class="form-control" type="number" required>
-    <button type="submit" class="btn">Continue</button>
-  </form>
+    <div class="bank-name">
+      <h1>Welcome to Tanda Bank</h1>
+      <p>Home of the Northwest's friendliest bank</p>
+    </div>
+    <div class="row">
+      <div class="col-6" id="new">
+        <h3>Open an account</h3>
+        <form id="new-account">
+          <label for="first-name">First name</label>
+          <input id="first-name" class="form-control" type="text" required>
+          <label for="last-name">Last name</label>
+          <input id="last-name" class="form-control" type="text" required>
+          <label for="age">Your age</label>
+          <input id="age" class="form-control" type="number" required>
+          <label for="initial-deposit">Amount you wish to deposit today</label>
+          <input id="initial-deposit" class="form-control" type="number" required>
+          <button type="submit" class="btn btn-outline-primary">Continue</button>
+        </form>
+      </div>
+      <div class="col-6" id="returning">
+        <h3>Returning users</h3>
+        <form id="returning-account">
+          <label for="last-name">Last name</label>
+          <input id="last-name" class="form-control" type="text" required>
+          <label for="number">Your account number</label>
+          <input id="number" class="form-control" type="number" required>
+          
+            <select class="form-control" id="deposit-or-withdraw" required>
+              <option>--select one--</option>
+              <option value="d">Make a Deposit</option>
+              <option value="w">Make a Withdraw</option>
+              <option value="b">Check Account Balance</option>
+            </select>
+          
+          <button type="submit" class="btn btn-outline-primary" id="after-selection">Continue</button>
+          
+          <!--<div class="withdraw">
+            <label for="withdraw">Amount to withdraw</label>
+            <input id="withdraw" class="form-control" type="number" required>
+          </div> --> 
+          <!-- <button type="submit" class="btn btn-outline-primary" id="deposit-button">Add Funds</button>
+          <button type="submit" class="btn btn-outline-primary" id="withdraw-button">Withdraw Funds</button> -->
+        </form>
+        <div class="deposit">
+          <label for="deposit">Amount to deposit today</label>
+          <input id="deposit" class="form-control" type="number">
+        </div>
+        <div class="withdraw">
+          <label for="withdraw">Amount to withdraw</label>
+          <input id="withdraw" class="form-control" type="number" required>
+        </div>
+      </div>
+    </div>
+
+    <h3>Your current balance is: $<span id="balance"></span></h3>
   
-  <button type="submit" class="btn" id="return-home">Return to Home</button>
   
 
 
   <span id="test"></span>
+  <button type="submit" class="btn btn-info" id="return-home">Return to Home</button>
+
 
    
    

@@ -1,3 +1,97 @@
+html, body {
+  margin:0;
+  padding:0;
+
+  /* background-image: linear-gradient(rgb(228, 242, 244), rgb(177, 216, 203)); */
+
+
+}
+
+#new-account {
+  width: 75%;
+  margin: auto;
+}
+
+#returning-account {
+  width: 75%;
+  margin: auto;
+}
+
+#deposit-or-withdraw {
+  margin-top: 5%;
+}
+
+.deposit, .withdraw {
+  display: none;
+  width: 75%;
+  margin: auto;
+}
+/* .deposit, .withdraw {
+  display: none;
+} */
+
+.btn-outline-primary {
+  margin-top: 20px; 
+}
+
 #return-home {
   display: none;
+  position: absolute;
+  bottom: 2%;
 }
+
+.container {
+  border: 1px solid black;
+  padding: 0;
+  margin:0;
+  min-width: 100%;
+
+}
+
+.bank-name {
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  margin: auto;
+  margin-bottom: 4%;
+  width: 100%;
+  background-image: linear-gradient(rgb(177, 216, 203), rgb(189, 248, 228));
+}
+
+.bank-name h1 {
+  margin-left: 10px;
+}
+
+.bank-name p {
+  margin-left: 15px;
+  font-style: italic;
+  /* margin-left: 20px; */
+}
+
+.row {
+  border: 1px solid blue;
+  box-sizing: border-box;
+  width: 90%;
+  margin: auto;
+}
+
+#new {
+  border: 1px solid red;
+}
+
+#new h3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#returning {
+  border: 1px solid red;
+}
+
+#returning h3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+
+

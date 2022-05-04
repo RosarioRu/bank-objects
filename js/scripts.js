@@ -69,24 +69,53 @@ $(document).ready(function(){
     // const showUserTheirAcctNumber = bestBankEver.accounts[newAccount.accountNumber].accountNumber;
     const showUserTheirAcctNumber = newAccount.accountNumber;
 
-    
-    
-
-    $("#test").text(showUserTheirAcctNumber);
-    $("form#new-account").hide();
+    $("#test").text("Your account number is: "+showUserTheirAcctNumber+ "."+" Please retain for your records.");
+    $(".row").hide();
     $("#return-home").show();
-   
+    console.log(bestBankEver.accounts);
+  });
+
+  $("form#returning-account").submit(function(event){
+    event.preventDefault();
+    const userLastName=$("input#last-name").val();
+    
+    const userEnteredAccount=$("input#number").val();
+    const whatToDo = $("#deposit-or-withdraw").val();
+    const lastNameOfAccountNumEntered = bestBankEver.accounts[userEnteredAccount].lastName;
+    console.log("belongs to"+lastNameOfAccountNumEntered);
+    console.log(bestBankEver.accounts[userEnteredAccount].accountNumber);
+
+    if (bestBankEver.accounts[userEnteredAccount].accountNumber =! undefined) {
+      if (lastNameOfAccountNumEntered===userLastName) {
+      alert("hi");
+    }
+
+    if (whatToDo==="d") {
+      $(".deposit").show();
+      $("#returning-account").hide();
+    } else if (whatToDo==="w") {
+      $(".withdraw").show();
+      $("#returning-account").hide();
+    } else {
+      $(".row").hide();
+      $("#balance").text(bestBankEver.accounts[userEnteredAccount].balance);
+    }
 
 
+    // FinancialInstitution.prototype.deposit = function (amount, acctNum) {
+    //   return this.accounts[acctNum].balance += amount;
+    // }
+  }
   });
 
   $("#return-home").click(function() {
     $("#return-home").hide();
-    $("#new-account").show();
+    $(".row").show();
     $("input#first-name").val("");
     $("input#last-name").val("");
     $("input#age").val("");
     $("input#initial-deposit").val("");
+    $("#test").text("");
   });
 
 
